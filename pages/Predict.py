@@ -16,6 +16,7 @@ cat = ['OverTime',
 'Attrition']
 
 models = {}
+st.set_page_config(layout="wide")
 
 class Node:
     def __init__(self, feature=None, threshold=None, data_left=None, data_right=None, gain=None, value=None):

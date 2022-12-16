@@ -1,7 +1,6 @@
 import pickle
 import time
 from collections import Counter
-from sklearn.metrics import roc_curve
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -9,17 +8,14 @@ import pandas as pd
 import seaborn as sn
 import streamlit as st
 import xgboost as xgb
-from sklearn import metrics
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import RocCurveDisplay
 from sklearn.manifold import TSNE
-from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import classification_report, confusion_matrix, roc_curve
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import KBinsDiscretizer, StandardScaler
 
-#st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 
 class Node:
     def __init__(self, feature=None, threshold=None, data_left=None, data_right=None, gain=None, value=None):
