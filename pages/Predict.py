@@ -167,7 +167,7 @@ class RandomForest:
             predictions.append(counter.most_common(1)[0][0])
         return predictions
 
-data = pd.read_csv('C:\\Users\\DELL\\Downloads\\M2Code\\DM\\Project\\DM-main\\Send\\pages\\datset.csv')
+data = pd.read_csv('datset.csv')
 data_og = data.drop(['EmployeeCount', 'Over18', 'StandardHours', 'EmployeeNumber', 'Attrition'], axis=1)
 attributes = [i for i in list(data.columns) if i not in ['Attrition']]
 instance_txt = [49,'No','Travel_Frequently',279,'Research & Development',8,1,'Life Sciences',1,2,3,'Male',61,2,2,'Research Scientist',2,'Married',5130,24907,1,'Y','No',23,4,4,80,1,10,3,3,10,7,1,7]
