@@ -178,7 +178,7 @@ cat = ['OverTime',
 models = {}
 rocs = {}
 
-data = pd.read_csv('C:\\Users\\DELL\\Downloads\\M2Code\\DM\\Project\\DM-main\\DS2\\src\\pages\\datset.csv') 
+data = pd.read_csv('datset.csv') 
 #data["Attrition"] = data['Attrition'].astype('category').cat.codes
 data = data.drop(['EmployeeCount', 'Over18', 'StandardHours', 'EmployeeNumber'], axis=1)
 for i in cat:
