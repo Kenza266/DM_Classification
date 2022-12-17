@@ -205,8 +205,8 @@ y = data['Attrition']
 X = data.drop(['Attrition'], axis=1)
 
 col1, col2 = st.sidebar.columns(2)
-run = col2.button('Run')
-yes_tsne = col1.checkbox('TSNE')
+run = col1.button('Run')
+yes_tsne = col2.checkbox('TSNE')
 if run:
     ##############################################################################
     if yes_tsne:
