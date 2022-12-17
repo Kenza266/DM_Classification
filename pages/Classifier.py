@@ -184,7 +184,6 @@ data = data.drop(['EmployeeCount', 'Over18', 'StandardHours', 'EmployeeNumber'],
 for i in cat:
     data[i] = (data[i].astype('category').cat.codes).apply(np.int64)
 
-yes_tsne = st.sidebar.checkbox('TSNE')
 max_unique_val = st.sidebar.number_input('Max unique values par attribute', 5, 1500)
 
 kbins = KBinsDiscretizer(n_bins=max_unique_val, encode='ordinal', strategy='uniform')
@@ -204,7 +203,11 @@ max_depth_rf = st.sidebar.number_input('Max depth', 1, 20, key=1)
 
 y = data['Attrition']
 X = data.drop(['Attrition'], axis=1)
-if st.sidebar.button('Run'):
+
+col1, col2 = st.sidebar.columns(2)
+run = col2.button('Run')
+yes_tsne = col1.checkbox('TSNE')
+if run:
     ##############################################################################
     if yes_tsne:
         start = time.time()
