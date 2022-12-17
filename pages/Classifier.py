@@ -205,15 +205,16 @@ y = data['Attrition']
 X = data.drop(['Attrition'], axis=1)
 if st.sidebar.button('Run'):
     ##############################################################################
-    start = time.time()
-    tsne = TSNE(random_state = 42, n_components=2,verbose=0, perplexity=40, n_iter=2000, learning_rate='auto').fit_transform(X)
-    stop = time.time()
-    with st.expander('T-SNE visualization of data disturibution'):
-        st.write("T-SNE fitting time", stop-start, 'seconds')
-        fig, ax = plt.subplots()
-        ax.scatter(tsne[:, 0], tsne[:, 1], s= 5, c=y[:], cmap='Spectral')
-        col, _ = st.columns(2)
-        col.pyplot(fig)
+    if st.sidebar.checkbox('TSNE'):
+        start = time.time()
+        tsne = TSNE(random_state = 42, n_components=2,verbose=0, perplexity=40, n_iter=2000, learning_rate='auto').fit_transform(X)
+        stop = time.time()
+        with st.expander('T-SNE visualization of data disturibution'):
+            st.write("T-SNE fitting time", stop-start, 'seconds')
+            fig, ax = plt.subplots()
+            ax.scatter(tsne[:, 0], tsne[:, 1], s= 5, c=y[:], cmap='Spectral')
+            col, _ = st.columns(2)
+            col.pyplot(fig)
     ##############################################################################
     scaler = StandardScaler()
     X = scaler.fit_transform(X)
